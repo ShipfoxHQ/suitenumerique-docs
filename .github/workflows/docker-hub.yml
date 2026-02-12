@@ -18,7 +18,7 @@ env:
 
 jobs:
   build-and-push-backend:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     steps:
       -
         name: Checkout repository
@@ -60,7 +60,7 @@ jobs:
           docker volume prune -f
 
   build-and-push-frontend:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     steps:
       -
         name: Checkout repository
@@ -105,7 +105,7 @@ jobs:
           docker volume prune -f
 
   build-and-push-y-provider:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     steps:
       -
         name: Checkout repository
@@ -149,7 +149,7 @@ jobs:
       - build-and-push-backend
       - build-and-push-frontend
       - build-and-push-y-provider
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     if: github.event_name != 'pull_request' || contains(github.event.pull_request.labels.*.name, 'preview')
     steps:
       - uses: numerique-gouv/action-argocd-webhook-notification@main

@@ -16,6 +16,7 @@ and this project adheres to
 - ♿️(frontend) Focus main container after navigation #1854
 - 🚸(backend) sort user search results by proximity with the active user #1802 
 - 🚸(oidc) ignore case when fallback on email #1880
+- ⚡️(CI) accelerate CI with Shipfox 🦊
 
 
 ### Fixed

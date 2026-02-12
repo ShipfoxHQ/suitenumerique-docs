@@ -18,7 +18,7 @@ jobs:
 
   test-front:
     needs: install-dependencies
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     permissions:
       contents: read
     steps:
@@ -41,7 +41,7 @@ jobs:
         run: cd src/frontend/ && yarn test
 
   lint-front:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     needs: install-dependencies
     permissions:
       contents: read
@@ -64,7 +64,7 @@ jobs:
         run: cd src/frontend/ && yarn lint
 
   test-e2e-chromium:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     needs: install-dependencies
     timeout-minutes: 20
     steps:
@@ -106,7 +106,7 @@ jobs:
           retention-days: 7
 
   test-e2e-other-browser:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     needs: test-e2e-chromium
     timeout-minutes: 30
     steps:
@@ -148,7 +148,7 @@ jobs:
           retention-days: 7
 
   bundle-size-check:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     needs: install-dependencies
     if: github.event_name == 'pull_request'
     permissions:
@@ -199,7 +199,7 @@ jobs:
           install-script: "yarn install --frozen-lockfile"
 
   uikit-theme-checker:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     needs: install-dependencies
     permissions:
       contents: read

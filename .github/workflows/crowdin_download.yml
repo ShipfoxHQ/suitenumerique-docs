@@ -14,7 +14,7 @@ jobs:
       with-front-dependencies-installation: true
 
   synchronize-with-crowdin:
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
     permissions:
       contents: write
       pull-requests: write
