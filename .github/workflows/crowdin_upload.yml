@@ -16,7 +16,7 @@ jobs:
 
   synchronize-with-crowdin:
     needs: install-dependencies
-    runs-on: ubuntu-latest
+    runs-on: shipfox-2vcpu-ubuntu-2404
 
     steps:
       - name: Checkout
