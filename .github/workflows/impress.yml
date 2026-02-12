@@ -66,13 +66,26 @@ jobs:
           fi
 
   lint-spell-mistakes:
-    runs-on: shipfox-2vcpu-ubuntu-2404
     if: github.event_name == 'pull_request'
+    name: Codespell (${{ matrix.runner }})
+    strategy:
+      fail-fast: false
+      matrix:
+        runner:
+          - shipfox-2vcpu-ubuntu-2404
+          - ubuntu-latest
+    runs-on: ${{ matrix.runner }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Install codespell
         run: pip install --user codespell
+      - name: Debug environment
+        run: |
+          echo "Runner: ${{ matrix.runner }}"
+          echo "PATH=$PATH"
+          which codespell || true
+          ls -la "$HOME/.local/bin" || true
       - name: Check for typos
         run: |
           codespell \
